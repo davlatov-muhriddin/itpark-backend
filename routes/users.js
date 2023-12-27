@@ -33,6 +33,11 @@ router.post("/", async (req, res) => {
       return;
     }
 
+    if (phone.length > 13 || phone.length < 13) {
+      res.json({ message: "telefon raqam noto'g'ri" });
+      return;
+    }
+
     const isExist = await Users.findOne({ phone: phone });
 
     if (isExist) {
