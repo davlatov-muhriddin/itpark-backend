@@ -65,7 +65,7 @@ router.post("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    await Users.findByIdAndDelete(id);
+    await Users.findByIdAndDelete(id, { new: true });
     res.status(200).json({
       message: "foydalanuvchi o'chirildi",
     });
